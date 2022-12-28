@@ -1,10 +1,19 @@
-from SublimeLinter.lint import Linter  # or NodeLinter, PythonLinter, ComposerLinter, RubyLinter
+import re
+from SublimeLinter.lint import NodeLinter, util
 
 
-class __class__(Linter):
-    cmd = '__cmd__'
-    regex = r''
-    multiline = False
+class Rome(NodeLinter):
+    cmd = 'rome check --colors=off ${file}'
+    regex = (
+        r'^.*:(?P<line>\d+):(?P<col>\d+)\s*'
+        r'\w+/\w+/(?P<code>\w+)\s*'
+        r'(FIXABLE\s*)?'
+        r'━*\s*'
+        r'((?P<warning>⚠|!)|(?P<error>×))\s+'
+        r'(?P<message>.*)\n'
+    )
+    multiline = True
+    error_stream = util.STREAM_STDERR
     defaults = {
-        'selector': 'source.python'
+        'selector': 'source.js, source.ts, source.jsx, source.tsx'
     }
