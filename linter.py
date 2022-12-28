@@ -1,4 +1,3 @@
-import re
 from SublimeLinter.lint import NodeLinter, util
 
 
