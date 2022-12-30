@@ -1,6 +1,6 @@
 SublimeLinter-rome
 -------------------------------
-This linter plugin for SublimeLinter provides an interface to Tome.
+This linter plugin for SublimeLinter provides an interface to Rome.
 
 For more information, please see:
 https://github.com/SublimeLinter/SublimeLinter-rome
